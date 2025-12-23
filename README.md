@@ -297,7 +297,7 @@ lib/
 ### Light Mode
 | Login Screen | Task List | Create Task |
 |:------------:|:---------:|:-----------:|
-| ![Login](screenshots/login_light.png) | ![Tasks](screenshots/tasks_light.png) | ![Create](screenshots/create_light.png) |
+| ![Login](https://snipboard.io/UQkfPq.jpg) | ![Tasks](https://snipboard.io/ANP1wB.jpg) | ![Create](https://snipboard.io/P0NqTl.jpg) |
 
 ### Dark Mode
 | Task List | Search | Priority Chips |
