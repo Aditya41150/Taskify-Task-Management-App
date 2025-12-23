@@ -8,9 +8,14 @@ class TaskSummary extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // This line now recognizes filteredTasksProvider because of the import above
-    final tasks = ref.watch(filteredTasksProvider);
-    final pendingCount = tasks.where((t) => !t.isCompleted).length;
+    // 1. Watch the provider
+    final tasksAsync = ref.watch(filteredTasksProvider);
+
+    // 2. Safely extract the pending count using maybeWhen
+    final pendingCount = tasksAsync.maybeWhen(
+      data: (tasks) => tasks.where((t) => !t.isCompleted).length,
+      orElse: () => 0, // Show 0 while loading or on error
+    );
 
     final String formattedDate =
         DateFormat('MMM d, yyyy').format(DateTime.now());
