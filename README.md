@@ -297,12 +297,12 @@ lib/
 ### Light Mode
 | Login Screen | Task List | Create Task |
 |:------------:|:---------:|:-----------:|
-| ![Login](screenshots/login_light.png) | ![Tasks](screenshots/tasks_light.png) | ![Create](screenshots/create_light.png) |
+| ![Login](https://snipboard.io/UQkfPq.jpg) | ![Tasks](https://snipboard.io/ANP1wB.jpg) | ![Create](https://snipboard.io/P0NqTl.jpg) |
 
 ### Dark Mode
 | Task List | Search | Priority Chips |
 |:---------:|:------:|:--------------:|
-| ![Tasks Dark](screenshots/tasks_dark.png) | ![Search](screenshots/search_dark.png) | ![Priority](screenshots/priority_dark.png) |
+| ![Tasks Dark](https://snipboard.io/YG9IAC.jpg) | ![Search](https://snipboard.io/5QHi1C.jpg) | ![Priority](https://snipboard.io/sxKfcR.jpg) |
 
 ---
 
@@ -446,7 +446,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions, suggestions, or issues:
 - Open an issue on GitHub
 - Email: singhadi437@gmail.com
-- Twitter: [@yourhandle](https://twitter.com/_Aditya_X)
+- Twitter: [@_Aditya_X](https://twitter.com/_Aditya_X)
 
 ---
 
