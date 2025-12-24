@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../providers/task_provider.dart';
 import '../widgets/task_tile.dart';
-import '../widgets/search_bar.dart'; // Ensure your Search Bar widget is imported
+import '../widgets/search_bar.dart';
 import 'add_task_bottom_sheet.dart';
+import '../../../../../../../main.dart';
 
 class TaskListPage extends ConsumerWidget {
   const TaskListPage({super.key});
@@ -22,22 +24,26 @@ class TaskListPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final tasksAsync = ref.watch(filteredTasksProvider);
+    final themeMode = ref.watch(themeNotifierProvider);
 
     return Scaffold(
       body: Column(
         children: [
-          // 1. Purple Header Section (Title + Icons) [cite: 2025-12-19]
-          _buildPurpleHeader(context),
+          // 1. Purple Header Section
+          _buildPurpleHeader(context, ref, themeMode),
 
-          // 2. Search Bar Section [cite: 2025-12-19]
+          // 2. Search Bar Section
           const TaskSearchBar(),
 
-          // 3. The Dynamic List Section [cite: 2025-12-19]
+          // 3. The Dynamic List Section
           Expanded(
             child: tasksAsync.when(
               data: (tasks) {
                 if (tasks.isEmpty) {
-                  return const Center(child: Text("No tasks found"));
+                  return const Center(
+                    child: Text("No tasks found",
+                        style: TextStyle(color: Colors.grey, fontSize: 16)),
+                  );
                 }
                 return ListView.builder(
                   padding: const EdgeInsets.only(bottom: 100),
@@ -88,7 +94,10 @@ class TaskListPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildPurpleHeader(BuildContext context) {
+  Widget _buildPurpleHeader(
+      BuildContext context, WidgetRef ref, ThemeMode currentTheme) {
+    final isDark = currentTheme == ThemeMode.dark;
+
     return Container(
       padding: const EdgeInsets.only(top: 60, left: 25, right: 25, bottom: 25),
       decoration: const BoxDecoration(
@@ -101,11 +110,32 @@ class TaskListPage extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.grid_view_rounded, color: Colors.white),
-              Icon(Icons.person_outline, color: Colors.white),
+              const Icon(Icons.grid_view_rounded, color: Colors.white),
+              Row(
+                children: [
+                  // THEME TOGGLE BUTTON
+                  IconButton(
+                    onPressed: () {
+                      ref.read(themeNotifierProvider.notifier).state =
+                          isDark ? ThemeMode.light : ThemeMode.dark;
+                    },
+                    icon: Icon(
+                      isDark ? Icons.light_mode : Icons.dark_mode,
+                      color: Colors.white,
+                    ),
+                  ),
+                  // LOGOUT BUTTON
+                  IconButton(
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                    },
+                    icon: const Icon(Icons.logout, color: Colors.white),
+                  ),
+                ],
+              ),
             ],
           ),
           const SizedBox(height: 25),
