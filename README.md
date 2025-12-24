@@ -297,12 +297,12 @@ lib/
 ### Light Mode
 | Login Screen | Task List | Create Task |
 |:------------:|:---------:|:-----------:|
-| ![Login](https://snipboard.io/UQkfPq.jpg) | ![Tasks](https://snipboard.io/ANP1wB.jpg) | ![Create](https://snipboard.io/P0NqTl.jpg) |
+| ![Login](https://snipboard.io/wHNf2J.jpg) | ![Tasks](https://snipboard.io/rEdZyg.jpg) | ![Create](https://snipboard.io/yvXMel.jpg) |
 
 ### Dark Mode
 | Task List | Search | Priority Chips |
 |:---------:|:------:|:--------------:|
-| ![Tasks Dark](https://snipboard.io/YG9IAC.jpg) | ![Search](https://snipboard.io/5QHi1C.jpg) | ![Priority](https://snipboard.io/sxKfcR.jpg) |
+| ![Tasks Dark](https://snipboard.io/ZUOJYP.jpg) | ![Search](https://snipboard.io/cbKirN.jpg) | ![Priority](https://snipboard.io/sxKfcR.jpg) |
 
 ---
 
